@@ -13,6 +13,12 @@ app.use(express.json());
 // URL encoded data is usually from forms
 app.use(express.urlencoded({ extended: true }));
 
+app.set('json spaces', 4); // Makes JSON responses pretty-printed with 2 spaces
+app.set('query parser', 'extended'); // Allows for nested objects in query strings
+
+// Connect to DB before handling any requests
+// await connectToDatabase();
+
 // define a GET route
 app.get('/', (request, response) => {
 //   res.send('<h1>Hello from Express!</h1>');
@@ -29,6 +35,9 @@ app.post('/', (request, response) => {
     let repeatedWord = request.body.message;
     response.json({ message: repeatedWord + repeatedWord + repeatedWord});
 });
+
+const bookRouter = require('./controllers/booksController.js');
+app.use('/books', bookRouter);
 
 // export the app for use in other files
 module.exports = {

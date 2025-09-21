@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Mongoose Books DB",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
