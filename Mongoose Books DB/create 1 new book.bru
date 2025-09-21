@@ -1,0 +1,15 @@
+meta {
+  name: create 1 new book
+  type: http
+  seq: 5
+}
+
+post {
+  url: http://localhost:3000/books
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

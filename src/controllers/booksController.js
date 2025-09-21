@@ -37,5 +37,40 @@ router.get('/search', async (request, response) => {
 
 });
 
+//POST to make a new book
+router.post('/', async (request, response) => {
+    let readyToUseData = JSON.parse(JSON.stringify(request.body));
+
+    if (!readyToUseData.title && typeof readyToUseData.title !== 'string') {
+        readyToUseData.title = readyToUseData.title ? String(readyToUseData.title) : "No Title";
+    }
+
+    let results = await new Book(readyToUseData).save();
+
+    response.json ({
+        message: results
+    })
+});
+
+// PATCH to partially update a book
+router.patch('/', async (request, response) => {
+    let results = null;
+
+    response.json ({
+        message: results
+    })
+});
+
+// DELETE to remove a book
+router.delete('/', async (request, response) => {
+    let results = null
+
+    response.json ({
+        message: results
+    })
+});
+
+
+
 // module.exports = {router}; // This was here before but changed to below, this means that router is exported not an object with router property
 module.exports = router;
