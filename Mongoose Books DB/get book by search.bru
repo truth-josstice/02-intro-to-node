@@ -5,9 +5,14 @@ meta {
 }
 
 get {
-  url: http://localhost:3000/books/68cfa38e1f4dfc895a227f49
+  url: http://localhost:3000/books/search?author=Douglas Adams&title=The Hitchhiker's Guide to the Galaxy
   body: none
   auth: inherit
+}
+
+params:query {
+  author: Douglas Adams
+  title: The Hitchhiker's Guide to the Galaxy
 }
 
 settings {
