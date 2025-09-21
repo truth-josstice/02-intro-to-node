@@ -1,6 +1,7 @@
 // Database related utilities such as connection, disconnect, seeding, etc.
 
 const { default: mongoose } = require("mongoose");
+const { Book } = require("../models/bookModel");
 
 async function connectToDatabase() {
     // Logic to connect to the database
@@ -22,5 +23,20 @@ async function disconnectFromDatabase() {
        }
 }
 
-connectToDatabase();
-disconnectFromDatabase();
+async function dbSandbox() {
+    await connectToDatabase();
+    
+    let hgttg = new Book({
+        title: "The Hitchhiker's Guide to the Galaxy",
+        isbn: ["978-0345391803", "978-0345453747"],
+        author: ["Douglas Adams"],
+        series: "The Hitchhiker's Guide to the Galaxy"
+    });
+
+    await hgttg.save();
+    console.log("Saved book:", hgttg);
+
+    await disconnectFromDatabase();
+}
+
+dbSandbox();
