@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/index.js",
     "dev:debug": "nodemon src/index.js",
-    "dev:db-utils": "node src/utils/database.js"
+    "dev:db-utils": "node src/utils/database.js",
+    "dev:seed": "node src/scripts/seed.js",
+    "dev:drop": "node src/scripts/drop.js"
   },
   "repository": {
     "type": "git",

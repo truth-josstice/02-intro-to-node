@@ -39,4 +39,10 @@ async function dbSandbox() {
     await disconnectFromDatabase();
 }
 
-dbSandbox();
+// dbSandbox();
+
+module.exports = {
+    connectToDatabase,
+    disconnectFromDatabase,
+    dbSandbox
+};
