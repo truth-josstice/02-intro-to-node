@@ -2,6 +2,7 @@
 
 const { default: mongoose } = require("mongoose");
 const { Book } = require("../models/bookModel");
+const { Author } = require("../models/authorModel");
 
 async function connectToDatabase() {
     // Logic to connect to the database

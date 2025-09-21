@@ -3,7 +3,10 @@ const { default: mongoose } = require("mongoose")
 const BookSchema = new mongoose.Schema({
         title: { type: String, required: true },
         isbn: [{ type: String, unique: true}],
-        author: { type: [String]},
+        author: [{
+            type: mongoose.Types.ObjectId,
+            ref: "Author"
+        }],
         series: { type: String }
     });
 
